@@ -12,6 +12,8 @@ La nueva ejecución y los casos S4 siguen pendientes de comprobación. Esta docu
 
 ## Documentos y logo
 
+- [Arquitectura de Rizo](docs/arquitectura.md)
+- [Diagramas de componentes y secuencia](docs/diagrama-arquitectura.md)
 - [Plan técnico de la demo v0.1, corregido](docs/plan-tecnico-demo-v0.1.pdf)
 - [Infografía de Rizo](docs/infografia-rizo.png)
 - [Presentación de Rizo](docs/presentacion-rizo.pdf)
