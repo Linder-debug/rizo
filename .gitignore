@@ -1,0 +1,4 @@
+node_modules/
+.env
+.codigo402-agente/
+*.log

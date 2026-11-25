@@ -1,0 +1,12 @@
+{
+  "name": "rizo",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "npm --prefix partes/Linder-debug run test:local",
+    "api": "npm --prefix partes/Linder-debug run api",
+    "agente": "npm --prefix partes/Linder-debug run agente",
+    "verificar": "npm --prefix partes/Linder-debug run verificar"
+  }
+}
