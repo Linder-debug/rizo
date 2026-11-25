@@ -1,0 +1,26 @@
+{
+  "name": "codigo-402",
+  "version": "1.0.0",
+  "scripts": {
+    "cuentas": "node --env-file-if-exists=.env crear-cuentas.js",
+    "usdc": "node --env-file=.env conseguir-usdc.js",
+    "pagar": "node --env-file=.env primer-pago.js",
+    "api": "node --env-file=.env server.js",
+    "cliente": "node --env-file=.env cliente.js",
+    "agente-wallet": "node --env-file=.env crear-agente.js",
+    "agente": "node --env-file=.env agente.js",
+    "verificar": "node --env-file=.env verificar.js",
+    "test": "node --env-file=.env --test",
+    "test:local": "node --test verificar.local.test.js pruebas-tope.test.js",
+    "test:red": "node --env-file=.env --test verificar.test.js"
+  },
+  "type": "module",
+  "dependencies": {
+    "@stellar/stellar-sdk": "17.4.0",
+    "@x402/core": "^2.30.0",
+    "@x402/express": "^2.30.0",
+    "@x402/fetch": "^2.30.0",
+    "@x402/stellar": "^2.30.0",
+    "express": "^5.3.0"
+  }
+}
