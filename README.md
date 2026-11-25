@@ -1,22 +1,30 @@
 # Rizo
 
-Propuesta de demo de un agente que consulta una API de datos y decide si paga según un tope de gasto, usando x402 sobre Stellar testnet con USDC de prueba.
+**Track:** Agente que paga (x402) · Código 402, Stellar testnet.
 
-## Estado
+**Qué hace:** un agente con wallet propia compra un dato a una API x402 en Stellar testnet (0.01 USDC de prueba por consulta), con tope de gasto por consulta y presupuesto acumulado, manejo de errores sin pagar a ciegas, y verificación del pago contra la red por RPC (contrato USDC, destinatario e importe en la misma transferencia).
 
-Este repositorio reúne la documentación y los recursos visuales de preparación. No contiene todavía la implementación de la demo ni acredita una ejecución nueva. La evidencia del bootcamp se mantiene separada en [codigo-402](https://github.com/Linder-debug/codigo-402).
+## Equipo y partes
 
-El flujo previsto es recibir HTTP 402, validar precio, red y esquema, rechazar antes de firmar si supera el tope, o enviar el pago y recibir HTTP 200 con dato y recibo. Un verificador externo propuesto consultará la red por RPC para comprobar el mismo hash, contrato, monto y destino.
+- **Linder-debug** (@linderlopezr): API x402, agente con tope de gasto, verificador RPC y pruebas → [`partes/Linder-debug/`](partes/Linder-debug/)
+- **Gonza**: incorporación pendiente.
 
-La nueva ejecución y los casos S4 siguen pendientes de comprobación. Esta documentación no autoriza pagos, despliegues ni el uso de fondos reales.
+## Cómo ejecutar
 
-## Documentos y logo
+```bash
+cd partes/Linder-debug
+npm ci
+npm run test:local   # 18 pruebas sin RPC ni saldo
+```
 
-- [Arquitectura de Rizo](docs/arquitectura.md)
-- [Diagramas de componentes y secuencia](docs/diagrama-arquitectura.md)
-- [Plan técnico de la demo v0.1, corregido](docs/plan-tecnico-demo-v0.1.pdf)
-- [Infografía de Rizo](docs/infografia-rizo.png)
-- [Presentación de Rizo](docs/presentacion-rizo.pdf)
-- [Logo Rizo V1](assets/logo/rizo-v1.png)
+La suite completa (22 pruebas, incluidas las consultas RPC) se ejecuta desde `partes/Linder-debug` con `npm test` y requiere un `.env` con las cuentas de prueba.
 
-La infografía es una copia visual con una flecha corregida. La presentación es una copia visual de siete diapositivas, no editable, con dos textos corregidos para distinguir lo propuesto de lo comprobado. Los originales de NotebookLM conservan sus versiones anteriores. El logo V1 es una propuesta, no una identidad final aprobada.
+La API, el agente y el verificador usan un `.env` privado (ver `.env.example` de la parte). Detalles y hashes de prueba en [`partes/Linder-debug/README.md`](partes/Linder-debug/README.md).
+
+## Comprobante en Stellar testnet
+
+Pago del verificador (sesión 4): [`56ad4636836de4efa6e2d4371838b8a7f931cdd6d99f2b661fee122ed5e5ffd7`](https://stellar.expert/explorer/testnet/tx/56ad4636836de4efa6e2d4371838b8a7f931cdd6d99f2b661fee122ed5e5ffd7)
+
+## Diseño
+
+Documentos de diseño de la demo en [`docs/`](docs/) y logo en [`assets/`](assets/).
